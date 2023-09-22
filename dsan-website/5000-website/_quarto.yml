@@ -8,6 +8,7 @@ website:
       - href: index.qmd
         text: Home
       - about.qmd
+      - data/data.qmd
       - clustering/clustering.qmd
       - eda/eda.ipynb
       - code.qmd
@@ -16,6 +17,17 @@ website:
       - Dimension/dimension.qmd
       - ARM/arm.qmd
       - Conclusions/conclusion.qmd
+      - sidebar:DecisionTrees
+
+  sidebar:
+    - id: DecisionTrees
+      title: "Decision trees"
+      style: "docked"
+      background: light
+      collapse-level: 2
+      contents: 
+        - classification.qmd
+        - Regression/regression.qmd
 
 format:
   html:

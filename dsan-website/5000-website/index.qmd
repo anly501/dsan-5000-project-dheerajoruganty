@@ -1,6 +1,8 @@
 ---
 title: "Dheeraj Oruganty"
 image: HS.jpeg
+background: dark
+sidebar: false
 about: 
   template: trestles
   image-shape: round
