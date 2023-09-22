@@ -1,10 +1,66 @@
 [
   {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "This site is made for DSAN 5000 Lab Assignment 1"
+  },
+  {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "DSAN-5000: Introduction",
+    "title": "Dheeraj Oruganty",
     "section": "",
-    "text": "See the following link for more information about the author: about me\nThis is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\nHIGHLY RECOMMENDED\n\nIt is highly recommended that you build your website using .ipynb files and NOT .qmdfiles\nFunctionally the two formats are basically identical, i.e. they are just Markdown + Code\nHowever there is ONE MAJOR DIFFERENCE, i.e. .ipynb stores the code outputs in the meta-data of the file\n\nThis means you ONLY HAVE TO RUN THE CODE ONCE with .ipynb\n.qmd will run the code every time you build the website, which can be very slow\n\nThere are caching options for .qmd, however, they are “messier” that just using .ipynb\n\nNote: .qmd is fine if there is no code, in which case it is basically just a Markdown file\n\nConverting between the two\n\nYou can switch between the two formats using\nquarto convert clustering.qmd this will output a .ipynb version called clustering.ipynb\nquarto convert eda.ipynb this will output a .qmd version called eda.qmd\n\nYOU CAN RUN R CODE IN VSC WITH .ipynb, see the following link\n\nhttps://saturncloud.io/blog/how-to-use-jupyter-r-kernel-with-visual-studio-code/\n\nIt is possible, but NOT RECOMMENDED, to mix Python and R code in the same file\n\nIMPORTANT ASIDE\n\nA .ipynb file is simply a JSON file with a specialized structural format\nYou can see this by running more eda/eda.ipynb from the command line\nWhich will output the following;\n\n\nTIP FOR MAC USERS\n\ncommand+control+shift+4 is very useful on a mac.\n\nIt takes a screenshot and saves it to the clip-board\n\nThe following VSC extension allows you to paste images from the clip-board with alt+command+v.\n\ntab is your best friend when using the command line, since it does auto-completion\nopen ./path_to_file will open any file or directory from the command line"
+    "text": "Dheeraj Oruganty is a student at Georgetown University studying Masters in Data Science and Analytics. When not innovating on data platforms, Dheeraj enjoys spending time travelling and going out to explore places"
+  },
+  {
+    "objectID": "index.html#education",
+    "href": "index.html#education",
+    "title": "Dheeraj Oruganty",
+    "section": "Education",
+    "text": "Education\nGeorgetown University, DC | Washington, DC MS in Data Science and Analytics | Aug 2023 - May 2025"
+  },
+  {
+    "objectID": "index.html#experience",
+    "href": "index.html#experience",
+    "title": "Dheeraj Oruganty",
+    "section": "Experience",
+    "text": "Experience\nMachine Learning Intern - Cluzters.ai | Aug 2021 to Feb 2022"
+  },
+  {
+    "objectID": "lab-2.1.html",
+    "href": "lab-2.1.html",
+    "title": "Lab-2.1: Assignment",
+    "section": "",
+    "text": "Gathering text data with an API\nIMPORTANT: The lab shown here (on the website) is just an HTML version, included for reference. To download the assignment, please navigate to the Labs tab in the Share-point dropdown menu in the website’s navigation bar. The relevant assignment can be determined from the folder’s name, click on the three dots & select download to get the assignment.\nNOTE: It is recommended that you complete this .ipynb file in VS-code.\nSubmission:"
+  },
+  {
+    "objectID": "lab-2.1.html#assignment-1",
+    "href": "lab-2.1.html#assignment-1",
+    "title": "Lab-2.1: Assignment",
+    "section": "Assignment-1:",
+    "text": "Assignment-1:\n\nRead over the News-API, Wikipedia API, and Google Scholar API sections in the lab-demonstration section, if you have not done so already.\n\nhttps://jfh.georgetown.domains/dsan5000/\n\nGet an API key for the News-API: see following link\nSubmission: Insert your API key below\n\n\nAPI_KEY='e5fb283476a34988a2f2358c58a08d0e'"
+  },
+  {
+    "objectID": "lab-2.1.html#assignment-2",
+    "href": "lab-2.1.html#assignment-2",
+    "title": "Lab-2.1: Assignment",
+    "section": "Assignment-2:",
+    "text": "Assignment-2:\n\nUse the provided News-API code as a starting point\nSelect THREE random topics (e.g. Georgetown, Cats, Clouds) but choose whatever you like\nQuery the API to pull text data and store the results in three different dictionaries\nExtract the title and description text and store for later processing (up to you how you do this)\nClean the text as needed\n\n\nimport requests\nimport json\nimport re\nimport pandas as pd\nfrom sklearn.feature_extraction.text import CountVectorizer\n\n\n#Lambda handler function for API calls.\ndef lambdaHandler(topic):\n    baseURL = \"https://newsapi.org/v2/everything?\"\n    total_requests=2\n    verbose=True\n    TOPIC = topic\n    URLpost = {'apiKey': API_KEY,\n                'q': '+'+TOPIC,\n                'sortBy': 'relevancy',\n                'totalRequests': 1}\n\n    # print(URLpost)\n\n    #GET DATA FROM API\n    response = requests.get(baseURL, URLpost) #request data from the server\n    print(response.url)\n    # print(response.url);  \n    response = response.json()\n\n    #print(json.dumps(response, indent=2))\n\n    from datetime import datetime\n    timestamp = datetime.now().strftime(\"%Y-%m-%d-H%H-M%M-S%S\")\n\n    # SAVE TO FILE \n    with open(TOPIC + '-newapi-raw-data.json', 'w') as outfile:\n        json.dump(response, outfile, indent=4)\n    return response\n\n\n# Function to clean up strings\ndef string_cleaner(input_string):\n    try: \n        out=re.sub(r\"\"\"\n                    [,.;@#?!&$-]+  # Accept one or more copies of punctuation\n                    \\ *           # plus zero or more copies of a space,\n                    \"\"\",\n                    \" \",          # and replace it with a single space\n                    input_string, flags=re.VERBOSE)\n\n        #REPLACE SELECT CHARACTERS WITH NOTHING\n        out = re.sub('[’.]+', '', input_string)\n\n        #ELIMINATE DUPLICATE WHITESPACES USING WILDCARDS\n        out = re.sub(r'\\s+', ' ', out)\n\n        #CONVERT TO LOWER CASE\n        out=out.lower()\n    except:\n        print(\"ERROR\")\n        out=''\n    return out\n\n\n# Function to clean up data before conversion\ndef cleaner(response):\n    article_list=response['articles']   #list of dictionaries for each article\n    article_keys=article_list[0].keys()\n    total_requests=2\n    verbose=True\n    print(\"AVAILABLE KEYS:\")\n    print(article_keys)\n    index=0\n    cleaned_data=[];  \n    for article in article_list:\n        tmp=[]\n        if(verbose):\n            print(\"#------------------------------------------\")\n            print(\"#\",index)\n            print(\"#------------------------------------------\")\n\n        for key in article_keys:\n            #if(verbose):\n                #print(\"----------------\")\n                #print(key)\n                #print(article[key])\n                #print(\"----------------\")\n\n            #if(key=='source'):\n                #src=string_cleaner(article[key]['name'])\n                #tmp.append(src) \n\n            #if(key=='author'):\n                #author=string_cleaner(article[key])\n                #ERROR CHECK (SOMETIMES AUTHOR IS SAME AS PUBLICATION)\n                #if(src in author): \n                    #print(\" AUTHOR ERROR:\",author);author='NA'\n                #tmp.append(author)\n\n            if(key=='title'):\n                tmp.append(string_cleaner(article[key]))\n\n            if(key=='description'):\n                tmp.append(string_cleaner(article[key]))\n\n            # if(key=='content'):\n            #     tmp.append(string_cleaner(article[key]))\n\n            #if(key=='publishedAt'):\n                #DEFINE DATA PATERN FOR RE TO CHECK  .* --&gt; wildcard\n                #ref = re.compile('.*-.*-.*T.*:.*:.*Z')\n                #date=article[key]\n                #if(not ref.match(date)):\n                    #print(\" DATE ERROR:\",date); date=\"NA\"\n                #tmp.append(date)\n\n        cleaned_data.append(tmp)\n        index+=1\n    return cleaned_data\n\n\ndef dataF(cleaned_data, topic):\n    #Function to convert a cleaned data frame into a CSV file.\n    df = pd.DataFrame(cleaned_data)\n    print(df)\n    df.to_csv(str(topic) + 'cleaned.csv' ,index_label=['index','title','description'])\n\n\nif __name__ == \"__main__\":\n    #Creating dataframes for 3 different topics and storing them in CSV files.\n    topic = [\"mango\", \"DOW\" , \"Watch\"]\n    for i in topic:\n        a = lambdaHandler(topic=i)\n        b = cleaner(response=a)\n        dataF(b,i)"
+  },
+  {
+    "objectID": "lab-2.1.html#assignment-3",
+    "href": "lab-2.1.html#assignment-3",
+    "title": "Lab-2.1: Assignment",
+    "section": "Assignment-3:",
+    "text": "Assignment-3:\n\nUse the provided Wikipedia-API code as a starting point\nFor EACH THREE of the random topics, create a word cloud for your cleaned title and description text\n\n\nimport wikipedia\n\n\ndef generate_word_cloud(my_text):\n    from wordcloud import WordCloud, STOPWORDS\n    import matplotlib.pyplot as plt\n    # exit()\n    # Import package\n    # Define a function to plot word cloud\n    def plot_cloud(wordcloud):\n        # Set figure size\n        plt.figure(figsize=(40, 30))\n        # Display image\n        plt.imshow(wordcloud) \n        # No axis details\n        plt.axis(\"off\");\n\n    # Generate word cloud\n    wordcloud = WordCloud(\n        width = 3000,\n        height = 2000, \n        random_state=1, \n        background_color='salmon', \n        colormap='Pastel1', \n        collocations=False,\n        stopwords = STOPWORDS).generate(my_text)\n    plot_cloud(wordcloud)\n    plt.show()\n\ntext='The field of machine learning is typically divided into three fundamental sub-paradigms. These include supervised learning, unsupervised learning, and reinforcement learning (RL). The discipline of reinforcement learning focuses on how intelligent agents learn to perform actions, inside a specified environment, to maximize  a cumulative reward function. Over the past several decades, there has been a push to incorporate concepts from the field of deep-learning into the agents used in RL algorithms. This has spawned the field of Deep reinforcement learning. To date, the field of deep RL has yielded stunning results in a wide range of technological applications. These include, but are not limited to, self-driving cars, autonomous game play, robotics, trading and finance, and Natural Language Processing. This course will begin with an introduction to the fundamentals of traditional, i.e. non-deep, reinforcement learning. After reviewing fundamental deep learning topics the course will transition to deep RL by incorporating artificial neural networks into the models. Topics include Markov Decision Processes, Multi-armed Bandits, Monte Carlo Methods, Temporal Difference Learning, Function Approximation, Deep Neural Networks, Actor-Critic, Deep Q-Learning, Policy Gradient Methods, and connections to Psychology and to Neuroscience.'\n\ngenerate_word_cloud(text)\n\n\n\n\n\ndef print_info(wiki_page):\n    print(\"-------------------------\")\n    print(wiki_page.title)\n    print(wiki_page.url)\n    print(wiki_page.sections)\n\n    if(verbose):\n        print(wiki_page.sections)\n        print(wiki_page.categories)\n        print(wiki_page.html)\n        print(wiki_page.images)\n        print(wiki_page.content)\n        print(wikipedia.summary(wiki_page.title, auto_suggest=False))\n        print(wiki_page.references)\n        print(wiki_page.links[0],len(page.links))\n\n#--------------------------\n# LOOP OVER COUNTRY AND TOPIC \n#--------------------------\n\ndef wordcloudGen(list3, topic_list):\n    for i in list3:\n    \n        text=''\n        #--------------------------\n        # USER INPUTS\n        #--------------------------\n        for topic in topic_list:\n            topic=topic+' in '+ i \n            print(\"topic = \",topic)\n            max_num_pages=2     #max num pages returned by wiki search\n            verbose=False\n\n            #--------------------------\n            #SEARCH FOR RELEVANT PAGES \n            #--------------------------\n            titles=wikipedia.search(topic,results=max_num_pages)\n            print(\"TITLES=\",titles)\n            \n            #--------------------------\n            #LOOP OVER TITLES\n            #--------------------------\n            num_files=0\n            for title in titles:\n                try:\n                    page = wikipedia.page(title, auto_suggest=False)\n                    print_info(page)\n                    text = text + page.content\n                    num_files+=1\n                except:\n                    print(\"SOMETHING WENT WRONG:\", title);  \n\n    generate_word_cloud(text)\n\n\nif __name__ == \"__main__\":\n    list1=['computer science']\n    list2=['Car']\n    list3=['Nike']\n    topic_list = ['System Architecture', 'Microprocessor', 'Software Engineering']\n    topic_list2 = ['horsepower', 'weight']\n    topic_list3 = ['shoes', 'basketball']\n    wordcloudGen(list1, topic_list)\n    wordcloudGen(list2, topic_list2)\n    wordcloudGen(list3, topic_list3)\n    \n\ntopic =  System Architecture in computer science\nTITLES= ['Computer architecture', 'Outline of computer science']\n-------------------------\nComputer architecture\nhttps://en.wikipedia.org/wiki/Computer_architecture\n[]\n-------------------------\nOutline of computer science\nhttps://en.wikipedia.org/wiki/Outline_of_computer_science\n[]\ntopic =  Microprocessor in computer science\nTITLES= ['Microcomputer', 'Microprocessor']\n-------------------------\nMicrocomputer\nhttps://en.wikipedia.org/wiki/Microcomputer\n[]\n-------------------------\nMicroprocessor\nhttps://en.wikipedia.org/wiki/Microprocessor\n[]\ntopic =  Software Engineering in computer science\nTITLES= ['Computer science and engineering', 'Software engineering']\n-------------------------\nComputer science and engineering\nhttps://en.wikipedia.org/wiki/Computer_science_and_engineering\n[]\n-------------------------\nSoftware engineering\nhttps://en.wikipedia.org/wiki/Software_engineering\n[]\ntopic =  horsepower in Car\nTITLES= ['List of production cars by power output', 'Horsepower']\n-------------------------\nList of production cars by power output\nhttps://en.wikipedia.org/wiki/List_of_production_cars_by_power_output\n[]\n-------------------------\nHorsepower\nhttps://en.wikipedia.org/wiki/Horsepower\n[]\ntopic =  weight in Car\nTITLES= ['Vehicle weight', 'Weight']\n-------------------------\nVehicle weight\nhttps://en.wikipedia.org/wiki/Vehicle_weight\n[]\n-------------------------\nWeight\nhttps://en.wikipedia.org/wiki/Weight\n[]\ntopic =  shoes in Nike\nTITLES= ['Nike, Inc.', 'Air Force (shoe)']\n-------------------------\nNike, Inc.\nhttps://en.wikipedia.org/wiki/Nike,_Inc.\n[]\n-------------------------\nAir Force (shoe)\nhttps://en.wikipedia.org/wiki/Air_Force_(shoe)\n[]\ntopic =  basketball in Nike\nTITLES= ['Nike, Inc.', 'Nike Elite Youth Basketball League']\n-------------------------\nNike, Inc.\nhttps://en.wikipedia.org/wiki/Nike,_Inc.\n[]\n-------------------------\nNike Elite Youth Basketball League\nhttps://en.wikipedia.org/wiki/Nike_Elite_Youth_Basketball_League\n[]"
+  },
+  {
+    "objectID": "clustering/clustering.html",
+    "href": "clustering/clustering.html",
+    "title": "Clustering",
+    "section": "",
+    "text": "Build out your website tab for “clustering”"
   },
   {
     "objectID": "eda/eda.html",
@@ -26,12 +82,5 @@
     "title": "Data Exploration",
     "section": "Basic visualization",
     "text": "Basic visualization\n\n\n# Create a visualization\nsns.relplot(\n    data=tips,\n    x=\"total_bill\", y=\"tip\", col=\"time\",\n    hue=\"smoker\", style=\"smoker\", size=\"size\",\n)\n\nplt.show()"
-  },
-  {
-    "objectID": "clustering/clustering.html",
-    "href": "clustering/clustering.html",
-    "title": "Clustering",
-    "section": "",
-    "text": "Build out your website tab for “clustering”"
   }
 ]
