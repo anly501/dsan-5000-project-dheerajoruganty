@@ -16,7 +16,7 @@ about:
       href: mailto:do343@georgetown.edu
 ---
 
-Dheeraj Oruganty is a student at Georgetown University studying Masters in Data Science and Analytics. When not innovating on data platforms, Dheeraj enjoys spending time travelling and going out to explore places
+Dheeraj Oruganty, [DO343] is a student at Georgetown University studying Masters in Data Science and Analytics. When not innovating on data platforms, Dheeraj enjoys spending time travelling and going out to explore places
 
 ## Education
 
