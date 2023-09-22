@@ -20,7 +20,26 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -64,7 +83,7 @@ ul.task-list li input[type="checkbox"] {
 <link rel="stylesheet" href="styles.css">
 </head>
 
-<body class="nav-fixed">
+<body class="nav-sidebar docked nav-fixed">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -125,16 +144,60 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./Conclusions/conclusion.html" rel="" target="">
  <span class="menu-text">Conclusions</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decision-trees" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+ <span class="menu-text">Decision trees</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-decision-trees">    
+        <li>
+    <a class="dropdown-item" href="./classification.html" rel="" target="">
+ <span class="dropdown-text">Classification</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./Regression/regression.html" rel="" target="">
+ <span class="dropdown-text">Regression</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
           </div> <!-- /navcollapse -->
       </div> <!-- /container-fluid -->
     </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+      <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item">Introduction</li></ol></nav>
+      <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+      </a>
+    </div>
+  </nav>
 </header>
 <!-- content -->
 <div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal sidebar-navigation docked overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./classification.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Classification</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./Regression/regression.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Regression</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar,#quarto-sidebar-glass"></div>
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
         
@@ -160,10 +223,32 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 <p>This is an introduction to my project on Reddit extracting data from r/WallStreetBets</p>
+<p>The authors of this paper delve into the role of the social media platform Reddit in the GameStop (GME) share rally of early 2021. Specifically, they examine how discussions on the r/WallStreetBets subreddit influenced the price dynamics of GameStop. To do this, they create a custom sentiment analysis dictionary for Reddit users using the Valence Aware Dictionary and Sentiment Reasoner (VADER) sentiment analysis package and analyze a massive dataset comprising 10.8 million comments. Their analysis uncovers significant relationships between Reddit sentiments and GameStop returns at various time intervals (1-, 5-, 10-, and 30-minutes), contributing valuable insights to the expanding body of research on “meme stocks” and the impact of discussions within investment forums on intraday stock price movements. <span class="citation" data-cites="anand2022role">Anand and Pathak (<a href="#ref-anand2022role" role="doc-biblioref">2022</a>)</span></p>
+<p>Reddit’s WallStreetBets (WSB) community has come to prominence in light of its notable role in affecting the stock prices of what are now referred to as meme stocks. Yet very little is known about the reliability of the highly speculative investment advice disseminated on WSB. This paper analyses WSB data spanning from January 2019 to April 2021 in order to assess how successful an investment strategy relying on the community’s recommendations could have been. We detect buy and sell advice and identify the community’s most popular stocks, based on which we define a WSB portfolio. Our evaluation shows that this portfolio has grown approx. 200% over the last three years and approx. 480% over the last year, significantly outperforming the S&amp;P500. The average short-term accuracy of buy and sell signals, in contrast, is not found to be significantly better than randomly or equally distributed buy decisions within the same time frame. However, we present a technique for estimating whether posts are proactive as opposed to reactive and show that by focusing on a subset of more promising buy signals, a trader could have made investments yielding higher returns than the broader market or the strategy of trusting all posted buy signals. Lastly, the analysis is also conducted specifically for the period before 2021 in order to factor out the effects of the GameStop hype of January 2021 - the results confirm the conclusions and suggest that the 2021 hype merely amplified pre-existing characteristics. <span class="citation" data-cites="buz2021should">Buz and Melo (<a href="#ref-buz2021should" role="doc-biblioref">2021</a>)</span></p>
+<ul>
+<li>What sentiments and discussions on Reddit’s investing subreddits, like r/WallStreetBets, have influenced Bed Bath &amp; Beyond stock recently?</li>
+<li>How active is the Bed Bath &amp; Beyond subreddit, and what are its members saying about the company’s stock?</li>
+<li>Are there any popular Reddit posts or comments that have affected the sentiment and trading activity around Bed Bath &amp; Beyond stock?</li>
+<li>Have there been any notable Reddit-driven movements in Bed Bath &amp; Beyond stock, similar to what was seen with GameStop in early 2021?</li>
+<li>How do Reddit users perceive the future prospects and potential catalysts for Bed Bath &amp; Beyond’s stock?</li>
+<li>Are there any memes, trends, or inside jokes related to Bed Bath &amp; Beyond stock on Reddit that might be influencing investor sentiment?</li>
+<li>What is the sentiment analysis of Reddit comments and discussions regarding Bed Bath &amp; Beyond stock?</li>
+<li>How do Reddit discussions align with or differ from traditional financial analysis and forecasts for Bed Bath &amp; Beyond stock?</li>
+<li>Are there any Reddit users or influencers known for their insights or influence on Bed Bath &amp; Beyond stock, and what are their views?</li>
+<li>What are the pros and cons of considering Reddit sentiment and discussions when making investment decisions related to Bed Bath &amp; Beyond stock?</li>
+</ul>
 
 
 
-</main> <!-- /main -->
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" role="list">
+<div id="ref-anand2022role" class="csl-entry" role="listitem">
+Anand, Abhinav, and Jalaj Pathak. 2022. <span>“The Role of Reddit in the GameStop Short Squeeze.”</span> <em>Economics Letters</em> 211: 110249.
+</div>
+<div id="ref-buz2021should" class="csl-entry" role="listitem">
+Buz, Tolga, and Gerard de Melo. 2021. <span>“Should You Take Investment Advice from WallStreetBets? A Data-Driven Approach.”</span> <em>arXiv Preprint arXiv:2105.02728</em>.
+</div>
+</div></section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
