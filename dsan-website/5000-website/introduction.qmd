@@ -1,0 +1,6 @@
+---
+title: "Introduction"
+---
+
+This is an introduction to my project on Reddit extracting data from r/WallStreetBets
+

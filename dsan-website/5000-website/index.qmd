@@ -19,7 +19,9 @@ Dheeraj Oruganty is a student at Georgetown University studying Masters in Data 
 ## Education
 
 Georgetown University, DC | Washington, DC
-MS in Data Science and Analytics | Aug 2023 - May 2025
+
+MS in Data Science and Analytics | 
+Aug 2023 - May 2025
 
 ## Experience
 

@@ -18,7 +18,7 @@
     "href": "index.html#education",
     "title": "Dheeraj Oruganty",
     "section": "Education",
-    "text": "Education\nGeorgetown University, DC | Washington, DC MS in Data Science and Analytics | Aug 2023 - May 2025"
+    "text": "Education\nGeorgetown University, DC | Washington, DC\nMS in Data Science and Analytics | Aug 2023 - May 2025"
   },
   {
     "objectID": "index.html#experience",
@@ -82,5 +82,33 @@
     "title": "Data Exploration",
     "section": "Basic visualization",
     "text": "Basic visualization\n\n\n# Create a visualization\nsns.relplot(\n    data=tips,\n    x=\"total_bill\", y=\"tip\", col=\"time\",\n    hue=\"smoker\", style=\"smoker\", size=\"size\",\n)\n\nplt.show()"
+  },
+  {
+    "objectID": "introduction.html",
+    "href": "introduction.html",
+    "title": "Introduction",
+    "section": "",
+    "text": "This is an introduction to my project on Reddit extracting data from r/WallStreetBets"
+  },
+  {
+    "objectID": "DataG/datagather.html",
+    "href": "DataG/datagather.html",
+    "title": "Data Gathering",
+    "section": "",
+    "text": "print('hello world')\n\nhello world"
+  },
+  {
+    "objectID": "ARM/arm.html",
+    "href": "ARM/arm.html",
+    "title": "Dheeraj Oruganty Portfolio Project",
+    "section": "",
+    "text": "title: ‘ARM’"
+  },
+  {
+    "objectID": "Conclusions/conclusion.html",
+    "href": "Conclusions/conclusion.html",
+    "title": "Dheeraj Oruganty Portfolio Project",
+    "section": "",
+    "text": "title: “Conlusion”"
   }
 ]

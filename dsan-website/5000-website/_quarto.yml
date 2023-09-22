@@ -2,12 +2,20 @@ project:
   type: website
 
 website:
-  title: "LAB500 1"
+  title: "Dheeraj Oruganty Portfolio Project"
   navbar:
     left:
       - href: index.qmd
         text: Home
       - about.qmd
+      - clustering/clustering.qmd
+      - eda/eda.ipynb
+      - code.qmd
+      - introduction.qmd
+      - DataG/datagather.ipynb
+      - Dimension/dimension.qmd
+      - ARM/arm.qmd
+      - Conclusions/conclusion.qmd
 
 format:
   html:
