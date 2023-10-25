@@ -6,28 +6,56 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - about.qmd
-      - data/data.qmd
-      - clustering/clustering.qmd
-      - eda/eda.ipynb
-      - code.qmd
-      - introduction.qmd
-      - DataG/datagather.ipynb
-      - Dimension/dimension.qmd
-      - ARM/arm.qmd
-      - Conclusions/conclusion.qmd
-      - sidebar:DecisionTrees
-
-  sidebar:
-    - id: DecisionTrees
-      title: "Decision trees"
-      style: "docked"
-      background: light
-      collapse-level: 2
-      contents: 
-        - classification.qmd
-        - Regression/regression.qmd
+        text: " "
+        icon: house
+      - href: introduction.qmd
+        text: " "
+        icon: hexagon
+      - href: "https://github.com/anly501/dsan-5000-project-kanghengliu/tree/main/data"
+        text: Data
+        icon: file-earmark-bar-graph
+      - href: ""
+        text: Data Pre-Processing
+        icon: clipboard-data
+      - href: Conclusions/conclusion.qmd
+        text: " "
+        icon: hexagon     
+        menu:
+          - href: DataG/datagather.ipynb
+            text: Data Gathering
+            icon: clipboard-data
+          - href: data/data.qmd
+            text: Data Cleaning
+            icon: filter-circle
+      - href: ""
+        text: DecisionTrees
+        icon: arrow-right
+        menu:
+          - href: classification.qmd
+            text: Classification
+            icon: bar-chart-steps
+          - href: Regression/regression.qmd
+            text: Regression
+            icon: binoculars
+      - href: ""
+        text: Data Processing
+        icon: arrow-right
+        menu:
+          - href: about.qmd
+            text: About
+            icon: bell-fill
+          - href: clustering/clustering.qmd
+            text: Clustering
+            icon: fullscreen
+          - href: eda/eda.ipynb
+            text: Exploratory Data Analysis
+            icon: geo-alt
+          - href: Dimension/dimension.qmd
+            text: Dimensionality Reduction
+            icon: gpu-card
+          - href: ARM/arm.qmd
+            text: ARM
+            icon: globe
 
 format:
   html:

@@ -116,33 +116,81 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../index.html" rel="" target="">
- <span class="menu-text">Home</span></a>
+    <a class="nav-link" href="../index.html" rel="" target=""><i class="bi bi-house" role="img">
+</i> 
+ <span class="menu-text"> </span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../about.html" rel="" target="">
- <span class="menu-text">About</span></a>
+    <a class="nav-link" href="../introduction.html" rel="" target=""><i class="bi bi-hexagon" role="img">
+</i> 
+ <span class="menu-text"> </span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../clustering/clustering.html" rel="" target="">
- <span class="menu-text">Clustering</span></a>
+    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kanghengliu/tree/main/data" rel="" target=""><i class="bi bi-file-earmark-bar-graph" role="img">
+</i> 
+ <span class="menu-text">Data</span></a>
   </li>  
+  <li class="dropdown-header"><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Data Pre-Processing</span></li>
   <li class="nav-item">
-    <a class="nav-link" href="../eda/eda.html" rel="" target="">
- <span class="menu-text">Data Exploration</span></a>
+    <a class="nav-link" href="../Conclusions/conclusion.html" rel="" target=""><i class="bi bi-hexagon" role="img">
+</i> 
+ <span class="menu-text"> </span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../code.html" rel="" target="">
- <span class="menu-text">Code</span></a>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decisiontrees" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+      <i class="bi bi-arrow-right" role="img">
+</i> 
+ <span class="menu-text">DecisionTrees</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-decisiontrees">    
+        <li>
+    <a class="dropdown-item" href="../classification.html" rel="" target=""><i class="bi bi-bar-chart-steps" role="img">
+</i> 
+ <span class="dropdown-text">Classification</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="../introduction.html" rel="" target="">
- <span class="menu-text">Introduction</span></a>
+        <li>
+    <a class="dropdown-item" href="../Regression/regression.html" rel="" target=""><i class="bi bi-binoculars" role="img">
+</i> 
+ <span class="dropdown-text">Regression</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../DataG/datagather.html" rel="" target="" aria-current="page">
- <span class="menu-text">Data Gathering</span></a>
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-processing" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+      <i class="bi bi-arrow-right" role="img">
+</i> 
+ <span class="menu-text">Data Processing</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-processing">    
+        <li>
+    <a class="dropdown-item" href="../about.html" rel="" target=""><i class="bi bi-bell-fill" role="img">
+</i> 
+ <span class="dropdown-text">About</span></a>
   </li>  
+        <li>
+    <a class="dropdown-item" href="../clustering/clustering.html" rel="" target=""><i class="bi bi-fullscreen" role="img">
+</i> 
+ <span class="dropdown-text">Clustering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../eda/eda.html" rel="" target=""><i class="bi bi-geo-alt" role="img">
+</i> 
+ <span class="dropdown-text">Exploratory Data Analysis</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../Dimension/dimension.html" rel="" target=""><i class="bi bi-gpu-card" role="img">
+</i> 
+ <span class="dropdown-text">Dimensionality Reduction</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../ARM/arm.html" rel="" target=""><i class="bi bi-globe" role="img">
+</i> 
+ <span class="dropdown-text">ARM</span></a>
+  </li>  
+    </ul>
+  </li>
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -177,10 +225,126 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="cell" data-execution_count="1">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'hello world'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime, date</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> time</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> warnings</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> pathlib <span class="im">import</span> Path</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>warnings.filterwarnings(<span class="st">'ignore'</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> yfinance <span class="im">as</span> yf</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> praw</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>msft <span class="op">=</span> yf.Ticker(<span class="st">"BBY.F"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>data <span class="op">=</span> yf.download(<span class="st">"BBY.F"</span>, start<span class="op">=</span><span class="st">"2022-06-01"</span>, end<span class="op">=</span><span class="st">"2022-12-30"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>hello world</code></pre>
+<pre><code>[*********************100%%**********************]  1 of 1 completed</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(data.head())</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>data.to_csv(<span class="st">'BBBY_data.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>             Open   High    Low  Close  Adj Close  Volume
+Date                                                     
+2022-06-01  8.061  8.061  7.730  7.730      7.730     380
+2022-06-02  7.797  7.811  7.797  7.811      7.811      10
+2022-06-03  7.826  7.874  7.774  7.774      7.774     450
+2022-06-06  7.539  7.539  7.539  7.539      7.539       0
+2022-06-07  7.504  7.504  7.504  7.504      7.504       0</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>client_id <span class="op">=</span> <span class="st">'hEeZW8o7s3F8rxCEIxOeXg'</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>secret_key <span class="op">=</span> <span class="st">'Mgzc-xjP4I78y9vHMVSezyzolmdejA'</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>reddit1 <span class="op">=</span> praw.Reddit(</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    client_id<span class="op">=</span> <span class="st">'hEeZW8o7s3F8rxCEIxOeXg'</span>,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    client_secret<span class="op">=</span> <span class="st">'Mgzc-xjP4I78y9vHMVSezyzolmdejA'</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    password <span class="op">=</span> <span class="st">"pokemons"</span>,</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>    user_agent<span class="op">=</span><span class="st">"test-script"</span>,</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    username<span class="op">=</span><span class="st">"dhhheeee"</span>,</span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(reddit.user.me())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>dhhheeee</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>q<span class="op">=</span><span class="st">'BBBY'</span> <span class="co">#query</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>sub<span class="op">=</span><span class="st">'WallStreetBets'</span> <span class="co">#subreddit</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>sort <span class="op">=</span> <span class="st">"top"</span> </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>limit <span class="op">=</span> <span class="dv">15000</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>top_posts <span class="op">=</span> reddit.subreddit(sub).search(q, sort<span class="op">=</span><span class="st">'hot'</span>, limit<span class="op">=</span>limit)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(top_posts)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;praw.models.listing.generator.ListingGenerator object at 0x13f6cfcd0&gt;</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>total_posts <span class="op">=</span> <span class="bu">list</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> post <span class="kw">in</span> top_posts:</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a> <span class="co"># print(vars(post)) # print all properties</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    time.sleep(<span class="dv">1</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    Title<span class="op">=</span>post.title,</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    Score <span class="op">=</span> post.score,</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    Number_Of_Comments <span class="op">=</span> post.num_comments,</span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    Publish_Date <span class="op">=</span> post.created,</span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    Link <span class="op">=</span> post.permalink,</span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    data_set <span class="op">=</span> {<span class="st">"Title"</span>:Title[<span class="dv">0</span>],<span class="st">"Score"</span>:Score[<span class="dv">0</span>],   <span class="st">"Number_Of_Comments"</span>:Number_Of_Comments[<span class="dv">0</span>],<span class="st">"Publish_Date"</span>:Publish_Date[<span class="dv">0</span>],<span class="st">"Link"</span>:<span class="st">'https://www.reddit.com'</span><span class="op">+</span>Link[<span class="dv">0</span>]}</span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    total_posts.append(data_set)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="21">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.DataFrame(total_posts)</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'data.csv'</span>, sep<span class="op">=</span><span class="st">','</span>, index<span class="op">=</span><span class="va">False</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>library(quantmod)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: xts
+
+Loading required package: zoo
+
+
+Attaching package: 'zoo'
+
+
+The following objects are masked from 'package:base':
+
+    as.Date, as.Date.numeric
+
+
+Loading required package: TTR
+
+Registered S3 method overwritten by 'quantmod':
+  method            from
+  as.zoo.data.frame zoo 
+</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="16">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>bby_df <span class="op">&lt;-</span> getSymbols(<span class="st">'BBY.f'</span>, src<span class="op">=</span><span class="st">'yahoo'</span>, auto.assign<span class="op">=</span>FALSE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning message:
+"BBY.f contains missing values. Some functions will not work if objects contain missing values in the middle of the series. Consider using na.omit(), na.approx(), na.fill(), etc to remove or replace them."</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="20">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>chartSeries(bby_df, name<span class="op">=</span><span class="st">"BBBY"</span>, subset<span class="op">=</span><span class="st">"last 24 months"</span>, theme<span class="op">=</span>chartTheme(<span class="st">"white"</span>))</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>write.csv(bby_df, <span class="bu">file</span> <span class="op">=</span> <span class="st">"wallstreetbets_stock.csv"</span>, row.names <span class="op">=</span> FALSE)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="datagather_files/figure-html/cell-13-output-1.png" class="img-fluid"></p>
 </div>
 </div>
 
