@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Dheeraj Oruganty Portfolio Project - Data Cleaning</title>
+<title>Portfolio Project - Data Cleaning</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -19,6 +19,40 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -59,6 +93,9 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.6/require.min.js" integrity="sha512-c3Nl8+7g4LMSTdrm621y7kf9v3SDPnhxLNhcjFJbKECVnmZHTdo+IRO05sNLTH/D3vA6u1X32ehoLC7WFVdheg==" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+<script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
 <link rel="stylesheet" href="../styles.css">
@@ -72,7 +109,7 @@ ul.task-list li input[type="checkbox"] {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container">
     <a class="navbar-brand" href="../index.html">
-    <span class="navbar-title">Dheeraj Oruganty Portfolio Project</span>
+    <span class="navbar-title">Portfolio Project</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -84,26 +121,42 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../index.html" rel="" target=""><i class="bi bi-house" role="img">
 </i> 
- <span class="menu-text"> </span></a>
+ <span class="menu-text">Index</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../introduction.html" rel="" target=""><i class="bi bi-hexagon" role="img">
 </i> 
- <span class="menu-text"> </span></a>
+ <span class="menu-text">Introduction</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-kanghengliu/tree/main/data" rel="" target=""><i class="bi bi-file-earmark-bar-graph" role="img">
+    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-dheerajoruganty/tree/9cb5614f7496de52e0d2e92841bcde5a79f1c9a2/dsan-website/5000-website/DataG" rel="" target=""><i class="bi bi-file-earmark-bar-graph" role="img">
 </i> 
  <span class="menu-text">Data</span></a>
   </li>  
-  <li class="dropdown-header"><i class="bi bi-clipboard-data" role="img">
-</i> 
- <span class="menu-text">Data Pre-Processing</span></li>
   <li class="nav-item">
     <a class="nav-link" href="../Conclusions/conclusion.html" rel="" target=""><i class="bi bi-hexagon" role="img">
 </i> 
- <span class="menu-text"> </span></a>
+ <span class="menu-text">Conclusion</span></a>
   </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-pre-processing" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+      <i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="menu-text">Data Pre-Processing</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-data-pre-processing">    
+        <li>
+    <a class="dropdown-item" href="../DataG/datagather.html" rel="" target=""><i class="bi bi-clipboard-data" role="img">
+</i> 
+ <span class="dropdown-text">Data Gathering</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../data/data.html" rel="" target=""><i class="bi bi-filter-circle" role="img">
+</i> 
+ <span class="dropdown-text">Data Cleaning</span></a>
+  </li>  
+    </ul>
+  </li>
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decisiontrees" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
       <i class="bi bi-arrow-right" role="img">
@@ -191,6 +244,411 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> io <span class="im">import</span> StringIO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="17">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'data.csv'</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.head())</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>df.columns</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       title score       id  \
+0  Wash sale     0   txhzpp   
+1    Comment     1  i3lsqo4   
+2    Comment     1  i3lrk43   
+3    Comment     1  i3lmzkh   
+4    Comment     1  i3lmz13   
+
+                                                 url  comms_num       created  \
+0  https://www.reddit.com/r/wallstreetbets/commen...        8.0  1.649236e+09   
+1                                                NaN        0.0  1.649238e+09   
+2                                                NaN        0.0  1.649237e+09   
+3                                                NaN        0.0  1.649233e+09   
+4                                                NaN        0.0  1.649233e+09   
+
+                                                body            timestamp  
+0  Hi guys I bought uvxy beginning of the year in...  2022-04-06 09:14:16  
+1                          Yes December 30 I sold it  2022-04-06 09:32:46  
+2         ![img](emote|t5_2th52|4260) Just need help  2022-04-06 09:15:56  
+3                                   ??? Alright bro.  2022-04-06 08:10:16  
+4  Elon is with more than some of the S&amp;P 500 com...  2022-04-06 08:10:03  </code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/mt/q564ct8s021gvdq22vy117hm0000gn/T/ipykernel_3020/3347210500.py:1: DtypeWarning: Columns (1) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv('data.csv')</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="17">
+<pre><code>Index(['title', 'score', 'id', 'url', 'comms_num', 'created', 'body',
+       'timestamp'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="33">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> df[df[<span class="st">'title'</span>].<span class="bu">str</span>.contains(<span class="st">'BBBY'</span>, case<span class="op">=</span><span class="va">False</span>, na<span class="op">=</span><span class="va">False</span>)]</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>filtered_df[<span class="st">'comms_num'</span>] <span class="op">=</span> filtered_df[<span class="st">'comms_num'</span>].astype(<span class="bu">int</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>filtered_df1 <span class="op">=</span> filtered_df[filtered_df[<span class="st">'comms_num'</span>] <span class="op">&gt;</span> <span class="dv">5</span>]</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>filtered_df1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/mt/q564ct8s021gvdq22vy117hm0000gn/T/ipykernel_3020/2740493494.py:3: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filtered_df['comms_num'] = filtered_df['comms_num'].astype(int)</code></pre>
+</div>
+<div class="cell-output cell-output-display" data-execution_count="33">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">score</th>
+<th data-quarto-table-cell-role="th">id</th>
+<th data-quarto-table-cell-role="th">url</th>
+<th data-quarto-table-cell-role="th">comms_num</th>
+<th data-quarto-table-cell-role="th">created</th>
+<th data-quarto-table-cell-role="th">body</th>
+<th data-quarto-table-cell-role="th">timestamp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">242</td>
+<td>BBBY ~25K GAINZ...BEEN A GOOD YEAR</td>
+<td>268</td>
+<td>trrxgt</td>
+<td>https://www.reddit.com/gallery/trrxgt</td>
+<td>33</td>
+<td>1.648594e+09</td>
+<td>NaN</td>
+<td>2022-03-29 22:44:07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">285</td>
+<td>Ryan Cohen knows what he is doing with $BBBY a...</td>
+<td>2221</td>
+<td>tr1ln5</td>
+<td>https://www.reddit.com/gallery/tr1ln5</td>
+<td>129</td>
+<td>1.648565e+09</td>
+<td>NaN</td>
+<td>2022-03-29 14:36:27</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">343</td>
+<td>Just another gains porn post to add to the mas...</td>
+<td>147</td>
+<td>tqkb6l</td>
+<td>https://i.redd.it/cpuz69lq37q81.png</td>
+<td>6</td>
+<td>1.648504e+09</td>
+<td>NaN</td>
+<td>2022-03-28 21:49:59</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">411</td>
+<td>BBBY 250k yolo - bend em over Ryan Cohen</td>
+<td>1086</td>
+<td>tqcqb6</td>
+<td>https://i.redd.it/gall3rdve5q81.jpg</td>
+<td>68</td>
+<td>1.648484e+09</td>
+<td>NaN</td>
+<td>2022-03-28 16:08:17</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5546</td>
+<td>BBBY- Why I’m bullish and you should be too.</td>
+<td>72</td>
+<td>twjqla</td>
+<td>https://www.reddit.com/r/wallstreetbets/commen...</td>
+<td>75</td>
+<td>1.649124e+09</td>
+<td>Disclaimer- I have no fking clue what I’m doin...</td>
+<td>2022-04-05 01:54:42</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">421595</td>
+<td>BBBY can keep you warm at night</td>
+<td>254</td>
+<td>131dzxb</td>
+<td>https://i.redd.it/qfnqwecj4jwa1.png</td>
+<td>16</td>
+<td>1.682646e+09</td>
+<td>NaN</td>
+<td>2023-04-28 01:38:48</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">424457</td>
+<td>Even in Canada the $BBBY party is over</td>
+<td>1135</td>
+<td>133txnt</td>
+<td>https://i.redd.it/4civ1miit2xa1.jpg</td>
+<td>115</td>
+<td>1.682866e+09</td>
+<td>NaN</td>
+<td>2023-04-30 14:51:39</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">441966</td>
+<td>BBBYQ hodlers with nuked accounts watching the...</td>
+<td>2636</td>
+<td>13gmycg</td>
+<td>https://v.redd.it/koph30sg9oza1</td>
+<td>365</td>
+<td>1.683998e+09</td>
+<td>NaN</td>
+<td>2023-05-13 17:06:51</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">458074</td>
+<td>You can now buy all the store equipment and fi...</td>
+<td>430</td>
+<td>13v91g2</td>
+<td>https://www.reddit.com/gallery/13v91g2</td>
+<td>94</td>
+<td>1.685400e+09</td>
+<td>NaN</td>
+<td>2023-05-29 22:47:16</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">542326</td>
+<td>BBBY is producing Degenerates</td>
+<td>321</td>
+<td>163krrj</td>
+<td>https://i.redd.it/w39r8pxdhukb1.png</td>
+<td>110</td>
+<td>1.693226e+09</td>
+<td>https://www.cnbc.com/2023/08/28/bed-bath-beyon...</td>
+<td>2023-08-28 12:28:37</td>
+</tr>
+</tbody>
+</table>
+
+<p>2689 rows × 8 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="34">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> filtered_df1[[<span class="st">'body'</span>, <span class="st">'title'</span>, <span class="st">'timestamp'</span>]]</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>filtered_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="34">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">body</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">timestamp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">242</td>
+<td>NaN</td>
+<td>BBBY ~25K GAINZ...BEEN A GOOD YEAR</td>
+<td>2022-03-29 22:44:07</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">285</td>
+<td>NaN</td>
+<td>Ryan Cohen knows what he is doing with $BBBY a...</td>
+<td>2022-03-29 14:36:27</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">343</td>
+<td>NaN</td>
+<td>Just another gains porn post to add to the mas...</td>
+<td>2022-03-28 21:49:59</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">411</td>
+<td>NaN</td>
+<td>BBBY 250k yolo - bend em over Ryan Cohen</td>
+<td>2022-03-28 16:08:17</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5546</td>
+<td>Disclaimer- I have no fking clue what I’m doin...</td>
+<td>BBBY- Why I’m bullish and you should be too.</td>
+<td>2022-04-05 01:54:42</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">421595</td>
+<td>NaN</td>
+<td>BBBY can keep you warm at night</td>
+<td>2023-04-28 01:38:48</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">424457</td>
+<td>NaN</td>
+<td>Even in Canada the $BBBY party is over</td>
+<td>2023-04-30 14:51:39</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">441966</td>
+<td>NaN</td>
+<td>BBBYQ hodlers with nuked accounts watching the...</td>
+<td>2023-05-13 17:06:51</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">458074</td>
+<td>NaN</td>
+<td>You can now buy all the store equipment and fi...</td>
+<td>2023-05-29 22:47:16</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">542326</td>
+<td>https://www.cnbc.com/2023/08/28/bed-bath-beyon...</td>
+<td>BBBY is producing Degenerates</td>
+<td>2023-08-28 12:28:37</td>
+</tr>
+</tbody>
+</table>
+
+<p>2689 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="35">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure that 'timestamp' column is in datetime format</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>filtered_df[<span class="st">'timestamp'</span>] <span class="op">=</span> pd.to_datetime(filtered_df[<span class="st">'timestamp'</span>])</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Filter the data based on the date range</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>start_date <span class="op">=</span> <span class="st">'2022-04-01'</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>end_date <span class="op">=</span> <span class="st">'2023-01-10'</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>filtered_df <span class="op">=</span> filtered_df[(filtered_df[<span class="st">'timestamp'</span>] <span class="op">&gt;=</span> start_date) <span class="op">&amp;</span> (filtered_df[<span class="st">'timestamp'</span>] <span class="op">&lt;=</span> end_date)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>/var/folders/mt/q564ct8s021gvdq22vy117hm0000gn/T/ipykernel_3020/2011051996.py:2: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame.
+Try using .loc[row_indexer,col_indexer] = value instead
+
+See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stable/user_guide/indexing.html#returning-a-view-versus-a-copy
+  filtered_df['timestamp'] = pd.to_datetime(filtered_df['timestamp'])</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="37">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>filtered_df</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="37">
+<div>
+
+
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">body</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">timestamp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">5546</td>
+<td>Disclaimer- I have no fking clue what I’m doin...</td>
+<td>BBBY- Why I’m bullish and you should be too.</td>
+<td>2022-04-05 01:54:42</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">5656</td>
+<td>Ryan Cohen tweets in code again? Is BbBY about...</td>
+<td>BBBY about to rocket?</td>
+<td>2022-04-04 04:37:21</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">10641</td>
+<td>I’m just getting started in options and I feel...</td>
+<td>BBBY Short Term Estimates</td>
+<td>2022-04-08 18:20:48</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">13821</td>
+<td>NaN</td>
+<td>Shorting $BBBY let's see what happens tomorrow</td>
+<td>2022-04-12 23:13:21</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">14750</td>
+<td>NaN</td>
+<td>BBBY YOLO - after turning 4k to 50k on BBBY sh...</td>
+<td>2022-04-14 23:06:44</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">...</td>
+<td>...</td>
+<td>...</td>
+<td>...</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">213329</td>
+<td>Went YOLO on $111k of BBBY 2024 corporate bond...</td>
+<td>BBBY 2024 BONDS YOLO</td>
+<td>2022-10-14 03:52:26</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">218886</td>
+<td>NaN</td>
+<td>Psychology of Market cycles in perspective of ...</td>
+<td>2022-10-18 18:30:30</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">244418</td>
+<td>I was reading his page on Wikipedia and stumbl...</td>
+<td>Excerpts from the class action suit against Ry...</td>
+<td>2022-11-09 03:58:50</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">259696</td>
+<td>This was his first video interview in a couple...</td>
+<td>Ryan Cohen speaks about selling his BBBY stake 🍉</td>
+<td>2022-11-20 21:33:14</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">296299</td>
+<td>NaN</td>
+<td>I heard you guys like gain porn (Citadel made ...</td>
+<td>2023-01-06 19:25:11</td>
+</tr>
+</tbody>
+</table>
+
+<p>2631 rows × 3 columns</p>
+</div>
+</div>
+</div>
+<div class="cell" data-execution_count="36">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>filtered_df.to_csv(<span class="st">'CleanedData.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
 

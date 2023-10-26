@@ -2,29 +2,29 @@ project:
   type: website
 
 website:
-  title: "Dheeraj Oruganty Portfolio Project"
+  title: "Portfolio Project"
   navbar:
     left:
       - href: index.qmd
-        text: " "
+        text: "Index"
         icon: house
       - href: introduction.qmd
-        text: " "
+        text: "Introduction"
         icon: hexagon
-      - href: "https://github.com/anly501/dsan-5000-project-kanghengliu/tree/main/data"
+      - href: "https://github.com/anly501/dsan-5000-project-dheerajoruganty/tree/9cb5614f7496de52e0d2e92841bcde5a79f1c9a2/dsan-website/5000-website/DataG"
         text: Data
         icon: file-earmark-bar-graph
+      - href: Conclusions/conclusion.qmd
+        text: "Conclusion"
+        icon: hexagon 
       - href: ""
         text: Data Pre-Processing
-        icon: clipboard-data
-      - href: Conclusions/conclusion.qmd
-        text: " "
-        icon: hexagon     
+        icon: clipboard-data    
         menu:
           - href: DataG/datagather.ipynb
             text: Data Gathering
             icon: clipboard-data
-          - href: data/data.qmd
+          - href: data/data.ipynb
             text: Data Cleaning
             icon: filter-circle
       - href: ""
