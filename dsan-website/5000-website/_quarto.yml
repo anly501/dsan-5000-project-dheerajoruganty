@@ -32,7 +32,7 @@ website:
         icon: arrow-right
         menu:
           - href: Classification/classification.ipynb
-            text: K-Means Classification
+            text: Naive Bayes Classification
             icon: bar-chart-steps
           - href: eda/eda.ipynb
             text: Exploratory Data Analysis
