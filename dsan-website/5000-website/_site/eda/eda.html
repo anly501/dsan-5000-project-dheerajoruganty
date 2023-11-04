@@ -224,7 +224,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#quick-look-at-the-data" id="toc-quick-look-at-the-data" class="nav-link active" data-scroll-target="#quick-look-at-the-data">Quick look at the data</a></li>
-  <li><a href="#basic-visualization" id="toc-basic-visualization" class="nav-link" data-scroll-target="#basic-visualization">Basic visualization</a></li>
+  <li><a href="#line-plot-for-closing-prices" id="toc-line-plot-for-closing-prices" class="nav-link" data-scroll-target="#line-plot-for-closing-prices">Line plot for closing prices</a></li>
+  <li><a href="#volume-traded-over-time" id="toc-volume-traded-over-time" class="nav-link" data-scroll-target="#volume-traded-over-time">Volume traded over time</a></li>
+  <li><a href="#box-plot-for-closing-prices-to-show-distribution-and-potential-outliers" id="toc-box-plot-for-closing-prices-to-show-distribution-and-potential-outliers" class="nav-link" data-scroll-target="#box-plot-for-closing-prices-to-show-distribution-and-potential-outliers">Box Plot for closing prices to show distribution and potential outliers</a>
+  <ul class="collapse">
+  <li><a href="#date-range" id="toc-date-range" class="nav-link" data-scroll-target="#date-range">Date Range:</a></li>
+  <li><a href="#price-movement" id="toc-price-movement" class="nav-link" data-scroll-target="#price-movement">Price Movement:</a>
+  <ul class="collapse">
+  <li><a href="#opening-prices" id="toc-opening-prices" class="nav-link" data-scroll-target="#opening-prices">Opening Prices:</a></li>
+  <li><a href="#closing-prices" id="toc-closing-prices" class="nav-link" data-scroll-target="#closing-prices">Closing Prices:</a></li>
+  <li><a href="#highs-and-lows" id="toc-highs-and-lows" class="nav-link" data-scroll-target="#highs-and-lows">Highs and Lows:</a></li>
+  <li><a href="#volume" id="toc-volume" class="nav-link" data-scroll-target="#volume">Volume:</a></li>
+  </ul></li>
+  <li><a href="#findings" id="toc-findings" class="nav-link" data-scroll-target="#findings">Findings</a>
+  <ul class="collapse">
+  <li><a href="#key-terms" id="toc-key-terms" class="nav-link" data-scroll-target="#key-terms">Key Terms</a></li>
+  <li><a href="#investor-behavior-and-sentiment" id="toc-investor-behavior-and-sentiment" class="nav-link" data-scroll-target="#investor-behavior-and-sentiment">Investor Behavior and Sentiment</a></li>
+  <li><a href="#temporal-focus" id="toc-temporal-focus" class="nav-link" data-scroll-target="#temporal-focus">Temporal Focus</a></li>
+  <li><a href="#emotional-and-personal-investment" id="toc-emotional-and-personal-investment" class="nav-link" data-scroll-target="#emotional-and-personal-investment">Emotional and Personal Investment</a></li>
+  <li><a href="#influential-figures" id="toc-influential-figures" class="nav-link" data-scroll-target="#influential-figures">Influential Figures</a></li>
+  </ul></li>
+  <li><a href="#discussion" id="toc-discussion" class="nav-link" data-scroll-target="#discussion">Discussion</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -251,53 +273,212 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Build out your website tab for exploratory data analysis</p>
 <section id="quick-look-at-the-data" class="level2">
 <h2 class="anchored" data-anchor-id="quick-look-at-the-data">Quick look at the data</h2>
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="21">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Import seaborn</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply the default theme</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>sns.set_theme(style<span class="op">=</span><span class="st">"whitegrid"</span>, palette<span class="op">=</span><span class="st">"pastel"</span>)</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Load an example dataset</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>tips <span class="op">=</span> sns.load_dataset(<span class="st">"tips"</span>)</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(tips)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming the stock data is stored in a CSV file called 'stock_data.csv'</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="co"># If it's in a different format, you'll need to adjust the read method accordingly</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.read_csv(<span class="st">'../data/bbbyopen.csv'</span>, index_col<span class="op">=</span><span class="st">'Date'</span>, parse_dates<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Basic statistics</span></span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Basic Statistical Details:"</span>)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df1.describe())</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>     total_bill   tip     sex smoker   day    time  size
-0         16.99  1.01  Female     No   Sun  Dinner     2
-1         10.34  1.66    Male     No   Sun  Dinner     3
-2         21.01  3.50    Male     No   Sun  Dinner     3
-3         23.68  3.31    Male     No   Sun  Dinner     2
-4         24.59  3.61  Female     No   Sun  Dinner     4
-..          ...   ...     ...    ...   ...     ...   ...
-239       29.03  5.92    Male     No   Sat  Dinner     3
-240       27.18  2.00  Female    Yes   Sat  Dinner     2
-241       22.67  2.00    Male    Yes   Sat  Dinner     2
-242       17.82  1.75    Male     No   Sat  Dinner     2
-243       18.78  3.00  Female     No  Thur  Dinner     2
-
-[244 rows x 7 columns]</code></pre>
+<pre><code>Basic Statistical Details:
+            Open       High        Low      Close  Adj Close        Volume
+count  43.000000  43.000000  43.000000  43.000000  43.000000  4.300000e+01
+mean    9.613721  10.715116   8.859302   9.659070   9.659070  6.085124e+07
+std     3.960792   5.189946   3.215582   3.811286   3.811286  7.683056e+07
+min     4.940000   5.770000   4.860000   5.770000   5.770000  7.908500e+06
+25%     7.095000   7.735000   6.800000   7.180000   7.180000  1.401785e+07
+50%     8.740000   9.120000   8.350000   8.760000   8.760000  3.142170e+07
+75%    10.800000  11.740000   9.895000  10.570000  10.570000  7.872405e+07
+max    26.940001  30.000000  22.500000  23.080000  23.080000  3.953199e+08</code></pre>
 </div>
 </div>
 </section>
-<section id="basic-visualization" class="level2">
-<h2 class="anchored" data-anchor-id="basic-visualization">Basic visualization</h2>
-<div class="cell" data-execution_count="9">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Create a visualization</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>sns.relplot(</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>    data<span class="op">=</span>tips,</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>    x<span class="op">=</span><span class="st">"total_bill"</span>, y<span class="op">=</span><span class="st">"tip"</span>, col<span class="op">=</span><span class="st">"time"</span>,</span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>    hue<span class="op">=</span><span class="st">"smoker"</span>, style<span class="op">=</span><span class="st">"smoker"</span>, size<span class="op">=</span><span class="st">"size"</span>,</span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<section id="line-plot-for-closing-prices" class="level1">
+<h1>Line plot for closing prices</h1>
+<div class="cell" data-execution_count="5">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.plot(df[<span class="st">'Close'</span>], label<span class="op">=</span><span class="st">'Close Price'</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Closing Price Over Time'</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Closing Price'</span>)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-display">
-<p><img src="eda_files/figure-html/cell-3-output-1.svg" class="img-fluid"></p>
+<p><img src="eda_files/figure-html/cell-3-output-1.png" class="img-fluid"></p>
 </div>
 </div>
+<div class="cell" data-execution_count="26">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>df1 <span class="op">=</span> pd.read_csv(<span class="st">'../data/bbbyopen.csv'</span>)</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df1.columns)</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Parse the 'Date' column to datetime while considering the timezone (-04:00)</span></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>df1[<span class="st">'Date'</span>] <span class="op">=</span> pd.to_datetime(df1[<span class="st">'Date'</span>], utc<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Set 'Date' as the index of your DataFrame</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>df1.set_index(<span class="st">'Date'</span>, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert the index to the desired timezone (the data has -04:00 which corresponds to US Eastern time)</span></span>
+<span id="cb4-14"><a href="#cb4-14" aria-hidden="true" tabindex="-1"></a>df1.index <span class="op">=</span> df1.index.tz_convert(<span class="st">'US/Eastern'</span>)</span>
+<span id="cb4-15"><a href="#cb4-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-16"><a href="#cb4-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Now you can plot the 'Close' price time series</span></span>
+<span id="cb4-17"><a href="#cb4-17" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
+<span id="cb4-18"><a href="#cb4-18" aria-hidden="true" tabindex="-1"></a>plt.plot(df1.index, df1[<span class="st">'Close'</span>], label<span class="op">=</span><span class="st">'Close Price'</span>, marker<span class="op">=</span><span class="st">'o'</span>)</span>
+<span id="cb4-19"><a href="#cb4-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-20"><a href="#cb4-20" aria-hidden="true" tabindex="-1"></a><span class="co"># Adding titles and labels</span></span>
+<span id="cb4-21"><a href="#cb4-21" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Stock Close Price Time Series'</span>)</span>
+<span id="cb4-22"><a href="#cb4-22" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb4-23"><a href="#cb4-23" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Close Price in $'</span>)</span>
+<span id="cb4-24"><a href="#cb4-24" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb4-25"><a href="#cb4-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-26"><a href="#cb4-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Improving design</span></span>
+<span id="cb4-27"><a href="#cb4-27" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb4-28"><a href="#cb4-28" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb4-29"><a href="#cb4-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-30"><a href="#cb4-30" aria-hidden="true" tabindex="-1"></a><span class="co"># Rotate date labels</span></span>
+<span id="cb4-31"><a href="#cb4-31" aria-hidden="true" tabindex="-1"></a>plt.xticks(rotation<span class="op">=</span><span class="dv">45</span>)</span>
+<span id="cb4-32"><a href="#cb4-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-33"><a href="#cb4-33" aria-hidden="true" tabindex="-1"></a><span class="co"># Show the plot</span></span>
+<span id="cb4-34"><a href="#cb4-34" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['Date', 'Open', 'High', 'Low', 'Close', 'Adj Close', 'Volume'], dtype='object')</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="eda_files/figure-html/cell-4-output-2.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="volume-traded-over-time" class="level1">
+<h1>Volume traded over time</h1>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">14</span>, <span class="dv">7</span>))</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>plt.bar(df.index, df[<span class="st">'Volume'</span>], label<span class="op">=</span><span class="st">'Volume Traded'</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Volume Traded Over Time'</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Date'</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Volume'</span>)</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="eda_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+<section id="box-plot-for-closing-prices-to-show-distribution-and-potential-outliers" class="level1">
+<h1>Box Plot for closing prices to show distribution and potential outliers</h1>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Box plot for closing prices to show distribution and potential outliers</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>plt.boxplot(df[<span class="st">'Close'</span>], vert<span class="op">=</span><span class="va">False</span>)</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Box Plot of Closing Prices'</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Price'</span>)</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="eda_files/figure-html/cell-6-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>After doing the EDA step for stock data, we can conclude the following.</p>
+<section id="date-range" class="level2">
+<h2 class="anchored" data-anchor-id="date-range">Date Range:</h2>
+<p>The data ranges from August 1, 2022, to September 29, 2022, giving us nearly two months of trading data to analyze.</p>
+</section>
+<section id="price-movement" class="level2">
+<h2 class="anchored" data-anchor-id="price-movement">Price Movement:</h2>
+<section id="opening-prices" class="level3">
+<h3 class="anchored" data-anchor-id="opening-prices">Opening Prices:</h3>
+<p>The opening prices have fluctuated significantly. The stock opened at $4.94 on August 1 and reached a high opening of $26.94 on August 17, indicating a substantial price increase within the month.</p>
+</section>
+<section id="closing-prices" class="level3">
+<h3 class="anchored" data-anchor-id="closing-prices">Closing Prices:</h3>
+<p>Closing prices saw similar volatility, starting at $5.77 and spiking up to $23.08 by August 17 before dropping down to $6.19 by the end of the period.</p>
+</section>
+<section id="highs-and-lows" class="level3">
+<h3 class="anchored" data-anchor-id="highs-and-lows">Highs and Lows:</h3>
+<p>The stock experienced considerable intraday volatility. For instance, on August 16, the stock reached a high of $28.60 but also had a low of $15.36 within the same day.</p>
+</section>
+<section id="volume" class="level3">
+<h3 class="anchored" data-anchor-id="volume">Volume:</h3>
+<p>Trading volume varied widely, with particularly high volumes coinciding with large price movements. For example, on August 8 and 16, where the closing prices were $11.41 and $20.65, the volumes were 122,664,300 and 395,319,900 respectively, which are significantly higher than the rest of the dates.</p>
+<div class="cell" data-execution_count="12">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> wordcloud <span class="im">import</span> WordCloud</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming `text` is a string containing the text data you want to generate a word cloud for.</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/dheerajoruganty/RedditSentimentAnalysisWSB/main/title.csv'</span>)</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Assuming your DataFrame is named df and the column with text data is named 'text_column'</span></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Combine all text from the text column into one large string</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>text <span class="op">=</span> <span class="st">" "</span>.join(review <span class="cf">for</span> review <span class="kw">in</span> df.title)</span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate a word cloud image</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>wordcloud <span class="op">=</span> WordCloud(background_color<span class="op">=</span><span class="st">"white"</span>).generate(text)</span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the generated image using matplotlib</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">5</span>))</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>plt.imshow(wordcloud, interpolation<span class="op">=</span><span class="st">'bilinear'</span>)</span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>plt.axis(<span class="st">"off"</span>)</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="eda_files/figure-html/cell-7-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+</section>
+</section>
+<section id="findings" class="level2">
+<h2 class="anchored" data-anchor-id="findings">Findings</h2>
+<section id="key-terms" class="level3">
+<h3 class="anchored" data-anchor-id="key-terms">Key Terms</h3>
+<ul>
+<li><strong>Stock Focus</strong>: “GME” and “BBBY” are the most prominent terms, indicating a high volume of discussion centered around GameStop and Bed Bath &amp; Beyond stocks.</li>
+<li><strong>Trading Vocabulary</strong>: Common trading terms such as “buy,” “sell,” “share,” and “stock” are prevalent.</li>
+</ul>
+</section>
+<section id="investor-behavior-and-sentiment" class="level3">
+<h3 class="anchored" data-anchor-id="investor-behavior-and-sentiment">Investor Behavior and Sentiment</h3>
+<ul>
+<li><strong>Community Lingo</strong>: Words like “moon,” “YOLO,” “ape,” and “HODL” suggest a community-driven, speculative approach to trading, aiming for substantial short-term gains.</li>
+<li><strong>Market Tactics</strong>: Discussions are rich with strategic terms like “short,” “squeeze,” “bullish,” and “put,” showing a deep engagement with market maneuvering.</li>
+</ul>
+</section>
+<section id="temporal-focus" class="level3">
+<h3 class="anchored" data-anchor-id="temporal-focus">Temporal Focus</h3>
+<ul>
+<li><strong>Immediate Action</strong>: The prominence of “today,” “tomorrow,” and “now” highlights a focus on immediate trading decisions rather than long-term investment strategies.</li>
+</ul>
+</section>
+<section id="emotional-and-personal-investment" class="level3">
+<h3 class="anchored" data-anchor-id="emotional-and-personal-investment">Emotional and Personal Investment</h3>
+<ul>
+<li><strong>Risk and Strategy</strong>: The term “YOLO” alongside “holding” illustrates a blend of risk-taking and strategic retention in investment decisions.</li>
+</ul>
+</section>
+<section id="influential-figures" class="level3">
+<h3 class="anchored" data-anchor-id="influential-figures">Influential Figures</h3>
+<ul>
+<li><strong>Notable Personalities</strong>: The mention of “Ryan Cohen” points to discussions that likely reflect the impact of key individuals in the trading community.</li>
+</ul>
+</section>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<p>The word cloud illustrates that the discussions are not just about trading strategies but also about community dynamics, with a marked tendency towards speculative trading. This is emblematic of a shift in investment culture, where individual investors collectively and informally share insights, strategies, and reactions to market events on digital platforms. The analysis provides a snapshot of the zeitgeist of modern retail investing, characterized by immediacy, community identity, and the influence of social media on market movements.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>In conclusion, the word cloud analysis of the text data from trading discussions has unveiled a vivid picture of the previous trading landscapes. It highlights the interplay between collective sentiment and individual decision-making, where community vernacular and strategic discourse converge. This underscores the impact of social platforms on investment practices and the evolving nature of the stock market in the digital age.</p>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
