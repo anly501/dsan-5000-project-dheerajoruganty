@@ -31,12 +31,12 @@ website:
         text: DecisionTrees
         icon: arrow-right
         menu:
-          - href: classification.qmd
-            text: Classification
+          - href: Classification/classification.ipynb
+            text: K-Means Classification
             icon: bar-chart-steps
-          - href: Regression/regression.qmd
-            text: Regression
-            icon: binoculars
+          - href: eda/eda.ipynb
+            text: Exploratory Data Analysis
+            icon: geo-alt
       - href: ""
         text: Data Processing
         icon: arrow-right
@@ -47,9 +47,9 @@ website:
           - href: clustering/clustering.qmd
             text: Clustering
             icon: fullscreen
-          - href: eda/eda.ipynb
-            text: Exploratory Data Analysis
-            icon: geo-alt
+          - href: Regression/regression.qmd
+            text: Regression
+            icon: binoculars
           - href: Dimension/dimension.qmd
             text: Dimensionality Reduction
             icon: gpu-card
