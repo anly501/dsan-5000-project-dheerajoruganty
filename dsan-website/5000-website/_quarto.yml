@@ -44,13 +44,13 @@ website:
           - href: about.qmd
             text: About
             icon: bell-fill
-          - href: clustering/clustering.qmd
+          - href: clustering/clustering.ipynb
             text: Clustering
             icon: fullscreen
           - href: Regression/regression.qmd
             text: Regression
             icon: binoculars
-          - href: Dimension/dimension.qmd
+          - href: Dimension/dimension.ipynb
             text: Dimensionality Reduction
             icon: gpu-card
           - href: ARM/arm.qmd
