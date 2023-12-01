@@ -28,7 +28,7 @@ website:
             text: Data Cleaning
             icon: filter-circle
       - href: ""
-        text: DecisionTrees
+        text: Classification & EDA
         icon: arrow-right
         menu:
           - href: Classification/classification.ipynb
@@ -47,8 +47,8 @@ website:
           - href: clustering/clustering.ipynb
             text: Clustering
             icon: fullscreen
-          - href: Regression/regression.qmd
-            text: Regression
+          - href: Regression/decision.ipynb
+            text: Decision Trees
             icon: binoculars
           - href: Dimension/dimension.ipynb
             text: Dimensionality Reduction

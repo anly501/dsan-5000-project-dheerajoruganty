@@ -155,12 +155,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decisiontrees" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classification--eda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
       <i class="bi bi-arrow-right" role="img">
 </i> 
- <span class="menu-text">DecisionTrees</span>
+ <span class="menu-text">Classification &amp; EDA</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-decisiontrees">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-classification--eda">    
         <li>
     <a class="dropdown-item" href="../Classification/classification.html" rel="" target=""><i class="bi bi-bar-chart-steps" role="img">
 </i> 
@@ -191,9 +191,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Clustering</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Regression/regression.html" rel="" target=""><i class="bi bi-binoculars" role="img">
+    <a class="dropdown-item" href="../Regression/decision.html" rel="" target=""><i class="bi bi-binoculars" role="img">
 </i> 
- <span class="dropdown-text">Regression</span></a>
+ <span class="dropdown-text">Decision Trees</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../Dimension/dimension.html" rel="" target=""><i class="bi bi-gpu-card" role="img">
@@ -282,7 +282,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="kmeans-and-dbscan" class="level1">
 <h1>Kmeans and DBSCAN</h1>
-<div class="cell" data-execution_count="58">
+<div class="cell" data-execution_count="67">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -302,7 +302,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul>
 <li>Since the data has already been cleaned, we can directly apply PCA to convert the text data into normalized vectors to pass through DBSCAN and KMEANS. In this project, I have used TD-IDF to convert the text data into normalized vectors.</li>
 </ul>
-<div class="cell" data-execution_count="59">
+<div class="cell" data-execution_count="68">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'../data/CleanedData.csv'</span>)</span>
@@ -320,7 +320,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>dbscan_labels <span class="op">=</span> dbscan.fit_predict(text_features)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="60">
+<div class="cell" data-execution_count="69">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.feature_extraction.text <span class="im">import</span> TfidfVectorizer</span>
@@ -349,7 +349,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="clustering_files/figure-html/cell-4-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="61">
+<div class="cell" data-execution_count="70">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Silhouette Analysis</span></span>
@@ -371,7 +371,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p><img src="clustering_files/figure-html/cell-5-output-1.png" class="img-fluid"></p>
 </div>
 </div>
-<div class="cell" data-execution_count="62">
+<div class="cell" data-execution_count="71">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Apply KMeans clustering</span></span>
@@ -384,12 +384,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>/Users/dheeraj/miniconda3/lib/python3.11/site-packages/sklearn/cluster/_kmeans.py:870: FutureWarning: The default value of `n_init` will change from 10 to 'auto' in 1.4. Set the value of `n_init` explicitly to suppress the warning
   warnings.warn(</code></pre>
 </div>
-<div class="cell-output cell-output-display" data-execution_count="62">
+<div class="cell-output cell-output-display" data-execution_count="71">
 <pre><code>(array([-1, -1, -1, ..., -1, -1, -1]),
  array([0, 0, 4, ..., 4, 4, 4], dtype=int32))</code></pre>
 </div>
 </div>
-<div class="cell" data-execution_count="63">
+<div class="cell" data-execution_count="72">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">16</span>, <span class="dv">8</span>))</span>
@@ -429,7 +429,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul>
 <section id="kmeans-to-generate-wordcloud-for-data-in-each-cluster" class="level2">
 <h2 class="anchored" data-anchor-id="kmeans-to-generate-wordcloud-for-data-in-each-cluster">Kmeans to generate wordcloud for data in each cluster</h2>
-<div class="cell" data-execution_count="64">
+<div class="cell" data-execution_count="73">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>n_clusters <span class="op">=</span> <span class="dv">6</span></span>
@@ -466,7 +466,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="hierarchical-clustering" class="level1">
 <h1>Hierarchical Clustering</h1>
-<div class="cell" data-execution_count="65">
+<div class="cell" data-execution_count="74">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
@@ -489,7 +489,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
-<div class="cell" data-execution_count="66">
+<div class="cell" data-execution_count="75">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb11"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute the cosine dissimilarity matrix (1 - similarity)</span></span>

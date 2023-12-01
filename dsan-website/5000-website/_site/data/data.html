@@ -158,12 +158,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </ul>
   </li>
   <li class="nav-item dropdown ">
-    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-decisiontrees" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-classification--eda" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
       <i class="bi bi-arrow-right" role="img">
 </i> 
- <span class="menu-text">DecisionTrees</span>
+ <span class="menu-text">Classification &amp; EDA</span>
     </a>
-    <ul class="dropdown-menu" aria-labelledby="nav-menu-decisiontrees">    
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-classification--eda">    
         <li>
     <a class="dropdown-item" href="../Classification/classification.html" rel="" target=""><i class="bi bi-bar-chart-steps" role="img">
 </i> 
@@ -194,9 +194,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="dropdown-text">Clustering</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Regression/regression.html" rel="" target=""><i class="bi bi-binoculars" role="img">
+    <a class="dropdown-item" href="../Regression/decision.html" rel="" target=""><i class="bi bi-binoculars" role="img">
 </i> 
- <span class="dropdown-text">Regression</span></a>
+ <span class="dropdown-text">Decision Trees</span></a>
   </li>  
         <li>
     <a class="dropdown-item" href="../Dimension/dimension.html" rel="" target=""><i class="bi bi-gpu-card" role="img">
@@ -222,7 +222,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#cleaned-data-is-uploaded-to-github." id="toc-cleaned-data-is-uploaded-to-github." class="nav-link active" data-scroll-target="#cleaned-data-is-uploaded-to-github.">Cleaned data, is uploaded to github.</a></li>
+  <li><a href="#cleaning-data-further-removing-emojis-stopwords-and-punctuation-from-the-text." id="toc-cleaning-data-further-removing-emojis-stopwords-and-punctuation-from-the-text." class="nav-link" data-scroll-target="#cleaning-data-further-removing-emojis-stopwords-and-punctuation-from-the-text.">Cleaning Data further, removing emojis, stopwords and punctuation from the text.</a>
+  <ul class="collapse">
+  <li><a href="#exporting-to-csv-after-cleaning" id="toc-exporting-to-csv-after-cleaning" class="nav-link" data-scroll-target="#exporting-to-csv-after-cleaning">Exporting to CSV after cleaning</a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -244,7 +254,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<div class="cell" data-execution_count="8">
+<div class="cell" data-execution_count="14">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> requests</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> io <span class="im">import</span> StringIO</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -649,8 +659,107 @@ See the caveats in the documentation: https://pandas.pydata.org/pandas-docs/stab
 <div class="cell" data-execution_count="36">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>filtered_df.to_csv(<span class="st">'CleanedData.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="cell" data-execution_count="2">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'CleanedData.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="3">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>df.head()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display" data-execution_count="3">
+<div>
 
 
+<table class="dataframe table table-sm table-striped small" data-quarto-postprocess="true" data-border="1">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th"></th>
+<th data-quarto-table-cell-role="th">Unnamed: 0</th>
+<th data-quarto-table-cell-role="th">body</th>
+<th data-quarto-table-cell-role="th">title</th>
+<th data-quarto-table-cell-role="th">timestamp</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">0</td>
+<td>5546</td>
+<td>Disclaimer- I have no fking clue what I’m doin...</td>
+<td>BBBY- Why I’m bullish and you should be too.</td>
+<td>2022-04-05 01:54:42</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">1</td>
+<td>5656</td>
+<td>Ryan Cohen tweets in code again? Is BbBY about...</td>
+<td>BBBY about to rocket?</td>
+<td>2022-04-04 04:37:21</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">2</td>
+<td>10641</td>
+<td>I’m just getting started in options and I feel...</td>
+<td>BBBY Short Term Estimates</td>
+<td>2022-04-08 18:20:48</td>
+</tr>
+<tr class="even">
+<td data-quarto-table-cell-role="th">3</td>
+<td>13821</td>
+<td>NaN</td>
+<td>Shorting $BBBY let's see what happens tomorrow</td>
+<td>2022-04-12 23:13:21</td>
+</tr>
+<tr class="odd">
+<td data-quarto-table-cell-role="th">4</td>
+<td>14750</td>
+<td>NaN</td>
+<td>BBBY YOLO - after turning 4k to 50k on BBBY sh...</td>
+<td>2022-04-14 23:06:44</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+<section id="cleaned-data-is-uploaded-to-github." class="level2">
+<h2 class="anchored" data-anchor-id="cleaned-data-is-uploaded-to-github.">Cleaned data, is uploaded to github.</h2>
+<ul>
+<li>https://raw.githubusercontent.com/dheerajoruganty/RedditSentimentAnalysisWSB/main/title.csv</li>
+</ul>
+</section>
+<section id="cleaning-data-further-removing-emojis-stopwords-and-punctuation-from-the-text." class="level2">
+<h2 class="anchored" data-anchor-id="cleaning-data-further-removing-emojis-stopwords-and-punctuation-from-the-text.">Cleaning Data further, removing emojis, stopwords and punctuation from the text.</h2>
+<div class="cell" data-execution_count="6">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.corpus <span class="im">import</span> stopwords</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> nltk.stem <span class="im">import</span> WordNetLemmatizer</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> re</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> vaderSentiment.vaderSentiment <span class="im">import</span> SentimentIntensityAnalyzer</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="4">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">'https://raw.githubusercontent.com/dheerajoruganty/RedditSentimentAnalysisWSB/main/title.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="7">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>stop_words <span class="op">=</span> <span class="bu">set</span>(stopwords.words(<span class="st">'english'</span>))</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>lemmatizer <span class="op">=</span> WordNetLemmatizer()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="8">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> preprocess_text(text):</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> text.lower()</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> re.sub(<span class="vs">r'[^\w\s]'</span>, <span class="st">''</span>, text)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    text <span class="op">=</span> <span class="st">' '</span>.join([lemmatizer.lemmatize(word) <span class="cf">for</span> word <span class="kw">in</span> text.split() <span class="cf">if</span> word <span class="kw">not</span> <span class="kw">in</span> stop_words])</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> text</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="9">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>df[<span class="st">'title'</span>] <span class="op">=</span> df[<span class="st">'title'</span>].<span class="bu">apply</span>(preprocess_text)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="exporting-to-csv-after-cleaning" class="level3">
+<h3 class="anchored" data-anchor-id="exporting-to-csv-after-cleaning">Exporting to CSV after cleaning</h3>
+<div class="cell" data-execution_count="10">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>df.to_csv(<span class="st">'CleanedData_Final.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+
+
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
