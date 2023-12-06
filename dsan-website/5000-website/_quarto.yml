@@ -6,17 +6,14 @@ website:
   navbar:
     left:
       - href: index.qmd
-        text: "Index"
+        text: "About me!"
         icon: house
       - href: introduction.qmd
         text: "Introduction"
         icon: hexagon
-      - href: "https://github.com/anly501/dsan-5000-project-dheerajoruganty/tree/9cb5614f7496de52e0d2e92841bcde5a79f1c9a2/dsan-website/5000-website/DataG"
+      - href: "https://github.com/anly501/dsan-5000-project-dheerajoruganty/tree/main/dsan-website/5000-website/data"
         text: Data
         icon: file-earmark-bar-graph
-      - href: Conclusions/conclusion.qmd
-        text: "Conclusion"
-        icon: hexagon 
       - href: ""
         text: Data Pre-Processing
         icon: clipboard-data    
@@ -41,21 +38,21 @@ website:
         text: Data Processing
         icon: arrow-right
         menu:
-          - href: about.qmd
-            text: About
-            icon: bell-fill
           - href: clustering/clustering.ipynb
             text: Clustering
             icon: fullscreen
-          - href: Regression/decision.ipynb
+          - href: DecisionTrees/decision.ipynb
             text: Decision Trees
             icon: binoculars
           - href: Dimension/dimension.ipynb
             text: Dimensionality Reduction
             icon: gpu-card
-          - href: ARM/arm.qmd
+          - href: ARM/arm.ipynb
             text: ARM
             icon: globe
+      - href: Conclusions/conclusion.ipynb
+        text: "Conclusion"
+        icon: hexagon 
 
 format:
   html:

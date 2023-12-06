@@ -2,7 +2,6 @@
 title: "Dheeraj Oruganty"
 image: HS.jpeg
 background: dark
-sidebar: false
 about: 
   template: trestles
   image-shape: round
@@ -16,15 +15,15 @@ about:
       href: mailto:do343@georgetown.edu
 ---
 
-Dheeraj Oruganty, [DO343] is a student at Georgetown University studying Masters in Data Science and Analytics. When not innovating on data platforms, Dheeraj enjoys spending time travelling and going out to explore places
+***Dheeraj Oruganty***, **DO343** is a student at Georgetown University studying Masters in Data Science and Analytics. When not innovating on data platforms, Dheeraj enjoys spending time travelling and going out to explore places
 
-## Education
+### Education
 
 Georgetown University, DC | Washington, DC
 
 MS in Data Science and Analytics | 
 Aug 2023 - May 2025
 
-## Experience
+### Experience
 
 Machine Learning Intern - Cluzters.ai | Aug 2021 to Feb 2022

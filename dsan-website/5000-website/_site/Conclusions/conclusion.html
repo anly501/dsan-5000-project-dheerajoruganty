@@ -84,7 +84,7 @@ ul.task-list li input[type="checkbox"] {
   <li class="nav-item">
     <a class="nav-link" href="../index.html" rel="" target=""><i class="bi bi-house" role="img">
 </i> 
- <span class="menu-text">Index</span></a>
+ <span class="menu-text">About me!</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../introduction.html" rel="" target=""><i class="bi bi-hexagon" role="img">
@@ -92,14 +92,9 @@ ul.task-list li input[type="checkbox"] {
  <span class="menu-text">Introduction</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-dheerajoruganty/tree/9cb5614f7496de52e0d2e92841bcde5a79f1c9a2/dsan-website/5000-website/DataG" rel="" target=""><i class="bi bi-file-earmark-bar-graph" role="img">
+    <a class="nav-link" href="https://github.com/anly501/dsan-5000-project-dheerajoruganty/tree/main/dsan-website/5000-website/data" rel="" target=""><i class="bi bi-file-earmark-bar-graph" role="img">
 </i> 
  <span class="menu-text">Data</span></a>
-  </li>  
-  <li class="nav-item">
-    <a class="nav-link active" href="../Conclusions/conclusion.html" rel="" target="" aria-current="page"><i class="bi bi-hexagon" role="img">
-</i> 
- <span class="menu-text">Conclusion</span></a>
   </li>  
   <li class="nav-item dropdown ">
     <a class="nav-link dropdown-toggle" href="#" id="nav-menu-data-pre-processing" role="button" data-bs-toggle="dropdown" aria-expanded="false" rel="" target="">
@@ -147,17 +142,12 @@ ul.task-list li input[type="checkbox"] {
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-data-processing">    
         <li>
-    <a class="dropdown-item" href="../about.html" rel="" target=""><i class="bi bi-bell-fill" role="img">
-</i> 
- <span class="dropdown-text">About</span></a>
-  </li>  
-        <li>
     <a class="dropdown-item" href="../clustering/clustering.html" rel="" target=""><i class="bi bi-fullscreen" role="img">
 </i> 
  <span class="dropdown-text">Clustering</span></a>
   </li>  
         <li>
-    <a class="dropdown-item" href="../Regression/decision.html" rel="" target=""><i class="bi bi-binoculars" role="img">
+    <a class="dropdown-item" href="../DecisionTrees/decision.html" rel="" target=""><i class="bi bi-binoculars" role="img">
 </i> 
  <span class="dropdown-text">Decision Trees</span></a>
   </li>  
@@ -173,6 +163,11 @@ ul.task-list li input[type="checkbox"] {
   </li>  
     </ul>
   </li>
+  <li class="nav-item">
+    <a class="nav-link active" href="../Conclusions/conclusion.html" rel="" target="" aria-current="page"><i class="bi bi-hexagon" role="img">
+</i> 
+ <span class="menu-text">Conclusion</span></a>
+  </li>  
 </ul>
             <div class="quarto-navbar-tools ms-auto">
 </div>
@@ -185,7 +180,13 @@ ul.task-list li input[type="checkbox"] {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link active" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -207,8 +208,27 @@ ul.task-list li input[type="checkbox"] {
 
 </header>
 
+<section id="conclusion" class="level1">
+<h1>Conclusion</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="stock.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+<p>Upon visual examination of the comparative line graph depicting stock price movements alongside the cumulative daily sentiment, I was able to conclude the following:</p>
+<ol type="1">
+<li><p>The cumulative sentiment over the observed period presents an ascending trajectory, suggesting a progressive build-up of positive sentiment.</p></li>
+<li><p>The stock price movement demonstrates marked volatility, characterized by pronounced rises and declines within the timeframe in question. This pattern of fluctuation does not appear to mirror the more gradual trend exhibited by the sentiment line.</p></li>
+<li><p>A direct and consistent correlation between sentiment and stock price movement is not readily apparent from the graphical representation. Instances where a surge in positive sentiment coincides with an uptick in stock prices are sporadic and do not establish a predictable pattern.</p></li>
+<li><p>The graph does not convincingly display a lag effect where sentiment shifts could be seen as preceding or predicting stock price movements.</p></li>
+<li><p>The independent nature of the fluctuations observed in both sentiment and stock price suggests that while sentiment may exert some influence on stock prices, it is not the predominant factor. It is plausible that stock price movements are subject to a broader spectrum of influences beyond the scope of market sentiment as captured by the dataset.</p></li>
+<li><p>The absence of a clear, direct relationship between sentiment and stock prices in the dataset implies that additional variables and external factors are likely at play in determining stock price dynamics. These may include economic indicators, corporate financial performance, geopolitical events, and broader market trends.</p></li>
+<li><p>Given the complexity of financial markets and the multitude of factors affecting stock prices, a more granular approach to analysis is warranted. This approach should encompass a broader dataset, potentially including trading volumes, financial news analysis, and economic indicators. Additionally, further statistical examination, such as correlation or regression analysis, may be employed to quantify the relationship between sentiment and stock price movements more precisely.</p></li>
+</ol>
+<p>In conclusion, the preliminary analysis does not substantiate a robust, standalone impact of market sentiment on stock prices within the examined period. While sentiment is an integral aspect of market dynamics, its role as a potential predictor or influencer of stock prices necessitates a more nuanced and multifaceted investigation to fully understand its impact within the intricate mosaic of market behavior. For future improvement, improving Labelling of sentiment through RoBERTa with Hugging Face API would be a very significant step to further improve this approach.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
