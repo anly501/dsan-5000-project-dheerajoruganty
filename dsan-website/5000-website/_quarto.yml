@@ -28,7 +28,7 @@ website:
         text: Classification & EDA
         icon: arrow-right
         menu:
-          - href: Classification/classification.ipynb
+          - href: Classification/Naive_Bayes.ipynb
             text: Naive Bayes Classification
             icon: bar-chart-steps
           - href: eda/eda.ipynb

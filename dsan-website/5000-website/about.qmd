@@ -1,5 +1,0 @@
----
-title: "About"
----
-
-This site is made for DSAN 5000 Lab Assignment 1

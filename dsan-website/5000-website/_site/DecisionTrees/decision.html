@@ -160,7 +160,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     </a>
     <ul class="dropdown-menu" aria-labelledby="nav-menu-classification--eda">    
         <li>
-    <a class="dropdown-item" href="../Classification/classification.html" rel="" target=""><i class="bi bi-bar-chart-steps" role="img">
+    <a class="dropdown-item" href="../Classification/Naive_Bayes.html" rel="" target=""><i class="bi bi-bar-chart-steps" role="img">
 </i> 
  <span class="dropdown-text">Naive Bayes Classification</span></a>
   </li>  
@@ -245,6 +245,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#plotting-multiple-decision-trees-from-the-trained-model" id="toc-plotting-multiple-decision-trees-from-the-trained-model" class="nav-link" data-scroll-target="#plotting-multiple-decision-trees-from-the-trained-model">Plotting multiple Decision Trees from the trained model</a></li>
   <li><a href="#making-a-dataframe-with-predicted-value-and-actual-value-of-the-test-set." id="toc-making-a-dataframe-with-predicted-value-and-actual-value-of-the-test-set." class="nav-link" data-scroll-target="#making-a-dataframe-with-predicted-value-and-actual-value-of-the-test-set.">Making a Dataframe, with Predicted Value and Actual Value of the test set.</a></li>
   <li><a href="#conclusions" id="toc-conclusions" class="nav-link" data-scroll-target="#conclusions">Conclusions:</a></li>
+  <li><a href="#final-stock-correlation-plot" id="toc-final-stock-correlation-plot" class="nav-link" data-scroll-target="#final-stock-correlation-plot">Final Stock Correlation Plot</a>
+  <ul class="collapse">
+  <li><a href="#reading-in-data-1" id="toc-reading-in-data-1" class="nav-link" data-scroll-target="#reading-in-data-1">Reading in Data</a></li>
+  <li><a href="#calculating-stock-movement" id="toc-calculating-stock-movement" class="nav-link" data-scroll-target="#calculating-stock-movement">Calculating Stock Movement</a></li>
+  <li><a href="#converting-columns-and-merging-stock-data-with-sentiment-analysis" id="toc-converting-columns-and-merging-stock-data-with-sentiment-analysis" class="nav-link" data-scroll-target="#converting-columns-and-merging-stock-data-with-sentiment-analysis">Converting Columns and Merging Stock Data with Sentiment Analysis</a></li>
+  <li><a href="#merged-data" id="toc-merged-data" class="nav-link" data-scroll-target="#merged-data">Merged Data</a></li>
+  <li><a href="#calculating-mean-sentiment-for-each-day" id="toc-calculating-mean-sentiment-for-each-day" class="nav-link" data-scroll-target="#calculating-mean-sentiment-for-each-day">Calculating mean sentiment for each day</a></li>
+  <li><a href="#creating-a-cumulative-sentiment-column" id="toc-creating-a-cumulative-sentiment-column" class="nav-link" data-scroll-target="#creating-a-cumulative-sentiment-column">Creating a cumulative sentiment column</a></li>
+  <li><a href="#merging-the-cumulative-sentiment-column" id="toc-merging-the-cumulative-sentiment-column" class="nav-link" data-scroll-target="#merging-the-cumulative-sentiment-column">Merging the cumulative sentiment column</a></li>
+  </ul></li>
+  <li><a href="#plotting-stock-price-movement-and-cumulative-daily-sentiment-over-time" id="toc-plotting-stock-price-movement-and-cumulative-daily-sentiment-over-time" class="nav-link" data-scroll-target="#plotting-stock-price-movement-and-cumulative-daily-sentiment-over-time">Plotting Stock Price Movement and Cumulative Daily Sentiment Over Time</a></li>
   </ul>
 </nav>
     </div>
@@ -1396,18 +1407,29 @@ weighted avg       0.79      0.78      0.76       885
 <li>From the confusion matrix, we can see that Random Forest was able to accurately predict almost all of the data labelled by VaderSentiment. An interesting take on this would be to label the text with some form of BERT, or Roberta (Huggingface) and run the experiment again. However, that could be done as an additional improvement in the future. From the Plots of Decision Trees, we can see that the max depth of the tree should be more than 15, which makes the Decision Tree really big, and difficult to see in the website. But due to the complexity of the data, I have decided to limit the maximum depth of the tree to 15 to vizualize it better.</li>
 <li>Going to record Data, we can see that Random Forest Regressor was able to predict the text data almost exactly except for the squeeze which we are studying. A more interesting take on this would be to try correlating the text data with the stock data to see if text data could be a better predictor of the stock data during the squeeze which is the main aim of this project.</li>
 </ul>
+</section>
+<section id="final-stock-correlation-plot" class="level2">
+<h2 class="anchored" data-anchor-id="final-stock-correlation-plot">Final Stock Correlation Plot</h2>
+<section id="reading-in-data-1" class="level3">
+<h3 class="anchored" data-anchor-id="reading-in-data-1">Reading in Data</h3>
 <div class="cell" data-execution_count="39">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>stock_data <span class="op">=</span> pd.read_csv(<span class="st">'../data/bbbyopen.csv'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
+<section id="calculating-stock-movement" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-stock-movement">Calculating Stock Movement</h3>
 <div class="cell" data-execution_count="41">
 <details>
 <summary>Code</summary>
 <div class="sourceCode cell-code" id="cb39"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>stock_data[<span class="st">'Movement'</span>] <span class="op">=</span> stock_data[<span class="st">'Close'</span>] <span class="op">-</span> stock_data[<span class="st">'Open'</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
+<section id="converting-columns-and-merging-stock-data-with-sentiment-analysis" class="level3">
+<h3 class="anchored" data-anchor-id="converting-columns-and-merging-stock-data-with-sentiment-analysis">Converting Columns and Merging Stock Data with Sentiment Analysis</h3>
 <div class="cell" data-execution_count="48">
 <details>
 <summary>Code</summary>
@@ -1420,6 +1442,9 @@ weighted avg       0.79      0.78      0.76       885
 <span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>merged_data <span class="op">=</span> pd.merge(stock_data, df, left_on<span class="op">=</span><span class="st">'Date'</span>, right_on<span class="op">=</span><span class="st">'timestamp'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
+<section id="merged-data" class="level3">
+<h3 class="anchored" data-anchor-id="merged-data">Merged Data</h3>
 <div class="cell" data-execution_count="49">
 <details>
 <summary>Code</summary>
@@ -1608,6 +1633,9 @@ weighted avg       0.79      0.78      0.76       885
 </div>
 </div>
 </div>
+</section>
+<section id="calculating-mean-sentiment-for-each-day" class="level3">
+<h3 class="anchored" data-anchor-id="calculating-mean-sentiment-for-each-day">Calculating mean sentiment for each day</h3>
 <div class="cell" data-execution_count="51">
 <details>
 <summary>Code</summary>
@@ -1615,6 +1643,9 @@ weighted avg       0.79      0.78      0.76       885
 <span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>daily_sentiment <span class="op">=</span> merged_data.groupby(<span class="st">'Date'</span>)[<span class="st">'TRAIN'</span>].mean().reset_index()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
+<section id="creating-a-cumulative-sentiment-column" class="level3">
+<h3 class="anchored" data-anchor-id="creating-a-cumulative-sentiment-column">Creating a cumulative sentiment column</h3>
 <div class="cell" data-execution_count="52">
 <details>
 <summary>Code</summary>
@@ -1622,6 +1653,9 @@ weighted avg       0.79      0.78      0.76       885
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>daily_sentiment[<span class="st">'Cumulative_Sentiment'</span>] <span class="op">=</span> daily_sentiment[<span class="st">'TRAIN'</span>].cumsum()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
+<section id="merging-the-cumulative-sentiment-column" class="level3">
+<h3 class="anchored" data-anchor-id="merging-the-cumulative-sentiment-column">Merging the cumulative sentiment column</h3>
 <div class="cell" data-execution_count="53">
 <details>
 <summary>Code</summary>
@@ -1629,6 +1663,10 @@ weighted avg       0.79      0.78      0.76       885
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>daily_data <span class="op">=</span> pd.merge(stock_data, daily_sentiment, on<span class="op">=</span><span class="st">'Date'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
+</section>
+</section>
+<section id="plotting-stock-price-movement-and-cumulative-daily-sentiment-over-time" class="level2">
+<h2 class="anchored" data-anchor-id="plotting-stock-price-movement-and-cumulative-daily-sentiment-over-time">Plotting Stock Price Movement and Cumulative Daily Sentiment Over Time</h2>
 <div class="cell" data-execution_count="54">
 <details>
 <summary>Code</summary>
