@@ -2,18 +2,62 @@ project:
   type: website
 
 website:
-  title: "DSAN-5000: Project"
+  title: "Portfolio Project"
   navbar:
     left:
       - href: index.qmd
-        text: Home
-      - href: clustering/clustering.qmd
-        text: Clustering
-      - href: eda/eda.ipynb
-        text: Data Exploration
+        text: "About me!"
+        icon: house
+      - href: introduction.qmd
+        text: "Introduction"
+        icon: hexagon
+      - href: "https://github.com/anly501/dsan-5000-project-dheerajoruganty/tree/main/dsan-website/5000-website/data"
+        text: Data
+        icon: file-earmark-bar-graph
+      - href: ""
+        text: Data Pre-Processing
+        icon: clipboard-data    
+        menu:
+          - href: DataG/datagather.ipynb
+            text: Data Gathering
+            icon: clipboard-data
+          - href: data/data.ipynb
+            text: Data Cleaning
+            icon: filter-circle
+      - href: ""
+        text: Classification & EDA
+        icon: arrow-right
+        menu:
+          - href: Classification/Naive_Bayes.ipynb
+            text: Naive Bayes Classification
+            icon: bar-chart-steps
+          - href: eda/eda.ipynb
+            text: Exploratory Data Analysis
+            icon: geo-alt
+      - href: ""
+        text: Data Processing
+        icon: arrow-right
+        menu:
+          - href: clustering/clustering.ipynb
+            text: Clustering
+            icon: fullscreen
+          - href: DecisionTrees/decision.ipynb
+            text: Decision Trees
+            icon: binoculars
+          - href: Dimension/dimension.ipynb
+            text: Dimensionality Reduction
+            icon: gpu-card
+          - href: ARM/arm.ipynb
+            text: ARM
+            icon: globe
+      - href: Conclusions/conclusion.ipynb
+        text: "Conclusion"
+        icon: hexagon 
+
 format:
   html:
     theme: cosmo
+    css: styles.css
     toc: true
 
 
